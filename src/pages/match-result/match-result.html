@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-toolbar color="header">
+    <ion-title text-center >BOOK COURT</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content no-padding class="background-gradient">
+  <ion-grid>
+    <ion-row>
+      <ion-col col-4 class="courtBooked" (click)="booked()">
+        Court 1
+      </ion-col>
+      <ion-col col-4 class="courtBooked" (click)="booked()">
+        Court 2
+      </ion-col>
+      <ion-col col-4 class="courtAvail" (click)="avail()">
+        Court 3
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-4 class="courtAvail" (click)="avail()">
+        Court 4
+      </ion-col>
+      <ion-col col-4 class="courtBooked" (click)="booked()">
+        Court 5
+      </ion-col>
+      <ion-col col-4 class="courtAvail" (click)="avail()">
+        Court 6
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-4 class="courtAvail" (click)="avail()">
+        Court 7
+      </ion-col>
+      <ion-col col-4 class="courtBooked" (click)="booked()">
+        Court 8
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-label>Booked</ion-label>
+          <ion-checkbox color="dark" checked="true" disabled></ion-checkbox>
+        </ion-item>
+        <ion-item>
+          <ion-label>Available</ion-label>
+          <ion-checkbox color="vari5" checked="true" disabled></ion-checkbox>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

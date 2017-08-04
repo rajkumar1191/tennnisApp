@@ -1,0 +1,30 @@
+<ion-content padding>
+    <ion-card class="loginForm">
+        <ion-card-header>
+            LOGIN
+        </ion-card-header>
+        <ion-card-content>
+            <form>
+                <ion-list>
+                    <ion-item>
+                        <ion-label floating>Email Id</ion-label>
+                        <ion-input type="text" [(ngModel)]="email" name="email"  value=""></ion-input>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label floating>Password</ion-label>
+                        <ion-input type="password" [(ngModel)]="password" name="password"  ></ion-input>
+                    </ion-item>
+                    <ion-item no-lines>
+                        <button type="submit" ion-button block (click)="loginFunction()">Login</button>
+                    </ion-item>
+                </ion-list>
+            </form>
+            <ion-list text-left>
+                Forget Password?
+            </ion-list>
+            <ion-list text-right>
+                Not Member? <button ion-button (click)="navToRegister()">Register</button> here
+            </ion-list>
+        </ion-card-content>
+    </ion-card>
+</ion-content>

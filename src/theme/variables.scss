@@ -1,16 +1,6 @@
 // Ionic Variables and Theming. For more info, please see:
 // http://ionicframework.com/docs/v2/theming/
-
-// Font path is used to include ionicons,
-// roboto, and noto sans fonts
 $font-path: "../assets/fonts";
-
-
-// The app direction is used to include
-// rtl styles in your app. For more info, please see:
-// http://ionicframework.com/docs/theming/rtl-support/
-$app-direction: ltr;
-
 
 @import "ionic.globals";
 
@@ -38,7 +28,21 @@ $colors: (
   secondary:  #32db64,
   danger:     #f53d3d,
   light:      #f4f4f4,
-  dark:       #222
+  dark:       #222,
+  header:    #5199E2,
+  header1:    #3772AC,  
+  bodyColor: #F5F5F5,
+  fabColor:  #687CE6,
+  white1: #fff,
+  vari1   :#ff7043,
+  vari2   :#00acc1,
+  vari3   :#009688,
+  vari4   :#90a4ae,
+  vari5   :#66B132,
+  vari6   :#0291CD,
+  vari7   :#ba68c8,
+  vari8   :#ff5252,
+  gold1:  #D4AF37
 );
 
 
