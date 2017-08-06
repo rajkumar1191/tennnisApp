@@ -6,15 +6,17 @@ import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { IonicStorageModule } from '@ionic/storage';
 import { Login } from '../pages/login/login';
+import { AdminLogin } from '../pages/admin-login/admin-login';
 import {  HttpModule } from '@angular/http';
 import { IonicNativePlugin } from '@ionic-native/core';
-import { MatchFixtures } from '../pages/match-fixtures/match-fixtures';
-import { Landing } from '../pages/landing/landing';
-import { MatchResult } from '../pages/match-result/match-result';
+import { AdminDashboard } from '../pages/admin-dashboard/admin-dashboard';
+import { Dashboard } from '../pages/dashboard/dashboard';
+import { Register } from '../pages/register/register';
+import { AdminCheckAvailability } from '../pages/admin-check-availability/admin-check-availability';
+import { CheckAvailability } from '../pages/check-availability/check-availability';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { LandingService } from '../pages/landing/landing.service';
-
+import { FirebaseService } from '../pages/register/firebase.service';
 import { FormsModule, ReactiveFormsModule }   from '@angular/forms';
 import { AngularFireModule } from 'angularfire2';
 import * as firebase from 'firebase';
@@ -34,9 +36,12 @@ import 'intl/locale-data/jsonp/en';
   declarations: [
     MyApp,
     Login,
-    MatchFixtures,
-    Landing,
-    MatchResult
+    Dashboard,
+    AdminDashboard,
+    Register,
+    AdminLogin,
+    CheckAvailability,
+    AdminCheckAvailability
   ],
   imports: [
     BrowserModule,
@@ -52,15 +57,18 @@ import 'intl/locale-data/jsonp/en';
   entryComponents: [
     MyApp,
     Login,
-    MatchFixtures,
-    Landing,
-    MatchResult
+    Dashboard,
+    AdminDashboard,
+    Register,
+    AdminLogin,
+    CheckAvailability,
+    AdminCheckAvailability
   ],
   providers: [
     StatusBar,
     SplashScreen,
     IonicNativePlugin,
-    LandingService,
+    FirebaseService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

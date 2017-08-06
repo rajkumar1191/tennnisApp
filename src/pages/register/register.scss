@@ -1,0 +1,61 @@
+page-register {
+        .background-gradient{
+        background: $BACKGROUND_TOP;
+        background-size: cover;
+    }
+    .scroll-content{
+     background: $BACKGROUND_TOP;
+        background-size: cover;
+    }
+    .liveText{
+        position: absolute;
+        bottom: 20px;
+        width: 100%;
+        background: rgba(0,0,0,0.3);
+        color: #fff;
+        left: 0;
+    }
+    .loginForm{
+        margin-top: 20%;
+    }
+    h2{
+        font-size: 1.6rem;
+        font-weight: 400;
+        text-transform: capitalize;
+        padding-left:10px; 
+    }
+    .backIcon{
+        display: none;
+    }
+    h6{
+        margin: 0;
+        font-size: 1.2rem;
+        color:#fff;
+        padding-right: 10px;
+        padding-bottom: 5px;
+    }
+    ion-app.md [padding], ion-app.md [padding] .scroll-content, ion-app.ios [padding], ion-app.ios [padding] .scroll-content{
+        margin: 0 0 5px;
+    }
+    h1{
+        font-size: 1.8em
+    }
+    ion-card {
+        position: relative;
+        text-align: center;
+    }
+    .signupBtn{
+      font-size: 1.1rem;
+    }
+  .imgOpa{
+    //   opacity: 0.6;
+      max-height: 160px;
+      height: auto;
+  }
+    form{
+        height: 100%;
+    }
+    .list-md .item-block .item-inner {
+    border-bottom: 1px solid #dedede !important;
+}
+}

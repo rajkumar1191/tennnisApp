@@ -1,4 +1,4 @@
-page-match-result {
+page-admin-check-availability {
     .serviceImg{
         width: 100%;
     }
@@ -19,19 +19,40 @@ page-match-result {
         background-repeat: no-repeat;
         float: right;
     }
+    .grid{
+        background: #fff;
+    }
+    .booked{
+        div{
+            height: 15px;
+            width: 15px;
+            background: #fb7474;
+        }
+    }
+    .available{
+        div{
+            height: 15px;
+            width: 15px;
+            background: #97de65;
+        }
+    }
     .courtBooked{
         height: 50px;
-        background: #222;
-        padding: 18px;
-        color: #fff;
-        margin: 5px
-    }
-    .courtAvail{
-        height: 50px;
-        background: #66B132;
+        background: #fb7474;
         padding: 18px;
         color: #fff;
         margin: 5px;
+        width:30%;
+        display: inline-block
+    }
+    .courtAvail{
+        height: 50px;
+        background: #97de65;
+        padding: 18px;
+        color: #fff;
+        margin: 5px;
+        width:30%;
+        display: inline-block
     }
     [col-4] {
         max-width: 29.33333%;

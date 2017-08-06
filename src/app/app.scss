@@ -10,7 +10,9 @@ $BACKGROUND_TRANSPARENCY: rgba(255,255,255,0.3);
      background: $BACKGROUND_TOP;
         background-size: cover;
 }
-
+.loginForm{
+        margin-top: 40%;
+    }
 ion-footer{
     background: #504f4f;
     color: #fff;
@@ -20,4 +22,13 @@ ion-footer{
 }
 .list-md > .item-block:last-child ion-label, .list-md > .item-block:last-child .item-inner, .list-md > .item-wrapper:last-child ion-label, .list-md > .item-wrapper:last-child .item-inner{
     border-bottom:0 !important;
+}
+.backIcon{
+    position: absolute;
+    width: 25px;
+    top: 10px;
+    z-index: 11;
+    left: 10px;
+    font-size: 2.2em;
+    color: #fff;
 }

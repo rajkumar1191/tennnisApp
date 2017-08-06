@@ -2,16 +2,16 @@ import { Component } from '@angular/core';
 import { NavController, NavParams, MenuController, LoadingController, AlertController } from 'ionic-angular';
 import { Dashboard } from '../dashboard/dashboard';
 import { AdminDashboard } from '../admin-dashboard/admin-dashboard';
-import { AdminLogin } from '../admin-login/admin-login';
 import { Register } from '../register/register';
+import { Login } from '../login/login';
 import { FirebaseService } from '../register/firebase.service';
 
 @Component({
-  selector: 'page-login',
-  templateUrl: 'login.html',
+  selector: 'page-admin-login',
+  templateUrl: 'admin-login.html',
   providers:[FirebaseService]
 })
-export class Login {
+export class AdminLogin {
   email:any;
   password:any;
   constructor(public navCtrl: NavController, public navParams: NavParams, public menuCtrl: MenuController, public googleService: FirebaseService, public alertCtrl: AlertController, public loadingCtrl: LoadingController) {
@@ -22,40 +22,23 @@ export class Login {
   navToRegister() {
     this.navCtrl.setRoot(Register);
   }
-  navtoadmin(){
-    this.navCtrl.setRoot(AdminLogin);    
+  navtouser(){
+    this.navCtrl.setRoot(Login);    
   }
   loginFunction() {
      let loader = this.loadingCtrl.create({
         dismissOnPageChange:true,
       });
       loader.present();
-    if(this.email != undefined && this.email != 'admin' && this.password != undefined && this.password != 'admin@12'){
-        this.googleService.loginUser(this.email,this.password).then((authData)=>{
-          if(authData != undefined){
-                loader.dismiss();                
-            this.navCtrl.setRoot(Dashboard,{uid:authData});
-          }
-          else
-          {
-            loader.dismiss();      
-            let alert = this.alertCtrl.create({
-              title: 'Login Error!!!',
-              subTitle: "Please check user name and password",
-              buttons: ['OK']
-            });
-            alert.present();                    
-          }
-        });
-            // this.navCtrl.setRoot(Dashboard);             
-    }
-    else if(this.email == 'admin' && this.password == 'admin@12'){
+   if(this.email == 'admin' && this.password == 'admin@12'){
+      loader.present();
+     
            this.navCtrl.setRoot(AdminDashboard);
     }
     else{
       let alert = this.alertCtrl.create({
           title: 'Login Error!!!',
-          subTitle: 'Please enter email and password',
+          subTitle: 'Please enter username and password',
           buttons: ['OK']
         });
         alert.present();

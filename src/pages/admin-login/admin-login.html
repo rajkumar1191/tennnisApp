@@ -7,8 +7,8 @@
             <form>
                 <ion-list>
                     <ion-item>
-                        <ion-label floating>Email Id</ion-label>
-                        <ion-input type="text" [(ngModel)]="email" name="email"  value=""></ion-input>
+                        <ion-label floating>Username</ion-label>
+                        <ion-input type="text" [(ngModel)]="email" name="username"  value=""></ion-input>
                     </ion-item>
                     <ion-item>
                         <ion-label floating>Password</ion-label>
@@ -19,11 +19,8 @@
                     </ion-item>
                 </ion-list>
             </form>
-            <ion-list (click)="navtoadmin()" text-left>
-                Admin Login?
-            </ion-list>
-            <ion-list text-right>
-                Not Member? <button ion-button (click)="navToRegister()">Register</button> here
+            <ion-list (click)="navtouser()" text-left>
+                User Login?
             </ion-list>
         </ion-card-content>
     </ion-card>

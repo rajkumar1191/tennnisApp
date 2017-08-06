@@ -2,16 +2,16 @@ import { Component } from '@angular/core';
 import { NavController, NavParams, MenuController, LoadingController, Platform, ToastController} from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 import { CalendarEvent } from 'angular-calendar';
-import { MatchResult } from '../match-result/match-result';
+import { CheckAvailability } from '../check-availability/check-availability';
 
 declare var navigator: any;
 declare var Connection: any;
 
 @Component({
-  selector: 'page-match-fixtures',
-  templateUrl: 'match-fixtures.html',
+  selector: 'page-dashboard',
+  templateUrl: 'dashboard.html',
 })
-export class MatchFixtures {
+export class Dashboard {
   eventSource;
     viewTitle;
 
@@ -46,8 +46,11 @@ export class MatchFixtures {
             }
         }
     };
+    uid:any;
+    email:any;
   constructor(public navCtrl: NavController, public navParams: NavParams, public storage: Storage, public menuCtrl: MenuController, public loadingCtrl:LoadingController, public toastCtrl: ToastController, private platform: Platform) {
-           
+           this.uid = this.navParams.data;
+        //    this.email = this.navParams.getemail;
   }
   
   loadEvents() {
@@ -71,7 +74,15 @@ export class MatchFixtures {
     }
 
     onTimeSelected(ev) {
-        this.navCtrl.push(MatchResult);
+        let d = new Date(ev.selectedTime),
+        month = '' + (d.getMonth() + 1),
+        day = '' + d.getDate(),
+        year = d.getFullYear();
+
+        if (month.length < 2) month = '0' + month;
+        if (day.length < 2) day = '0' + day;
+        let data = [year, month, day].join('-');
+        this.navCtrl.push(CheckAvailability,{data:data,uid:this.uid});
     }
 
     onCurrentDateChanged(event:Date) {

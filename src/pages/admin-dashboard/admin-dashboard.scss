@@ -1,7 +1,5 @@
-page-match-fixtures {
+page-admin-dashboard {
     .background-gradient{
-        background: url('../assets/img/badminton1.png') no-repeat;
-        // background: #272727;
         background-size: cover;
     }
     .grid{
@@ -49,7 +47,7 @@ page-match-fixtures {
         background: #fff;
     }
     .monthview-selected{
-        border: 1px solid;
-        border-radius: 37%;
+        // border: 1px solid;
+        // border-radius: 37%;
     }
 }

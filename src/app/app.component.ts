@@ -3,8 +3,8 @@ import { Component, ViewChild } from '@angular/core';
 import { Platform, MenuController, Nav } from 'ionic-angular';
 
 import { Login } from '../pages/login/login';
-import { Landing } from '../pages/landing/landing';
-import { MatchFixtures } from '../pages/match-fixtures/match-fixtures';
+import { Register } from '../pages/register/register';
+import { Dashboard } from '../pages/dashboard/dashboard';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -49,7 +49,7 @@ export class MyApp {
 }
 // firebase.auth().onAuthStateChanged((user)=>{
 //   if(user){
-//     this.rootPage = MatchFixtures;
+//     this.rootPage = Dashboard;
 //   }
 //   else{
 //       this.rootPage = Login;
