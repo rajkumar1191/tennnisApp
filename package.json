@@ -9,7 +9,7 @@
         "build": "ionic-app-scripts build",
         "ionic:build": "ionic-app-scripts build",
         "ionic:serve": "ionic-app-scripts serve"
-    }, 
+    },
     "dependencies": {
         "@angular/animations": "^4.0.0",
         "@angular/common": "4.0.2",
