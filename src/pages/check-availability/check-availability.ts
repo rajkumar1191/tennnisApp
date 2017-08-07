@@ -3,6 +3,7 @@ import { NavController, NavParams, MenuController, LoadingController, Platform, 
 import { Storage } from '@ionic/storage';
 import { FirebaseService } from '../register/firebase.service';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
+import { Login } from '../login/login';
 
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
@@ -34,6 +35,14 @@ export class CheckAvailability {
         console.log(this.dataList);
     });
   }
+    navToBack()
+    {
+        this.navCtrl.pop();
+    }
+     logout()
+    {
+        this.navCtrl.setRoot(Login);
+    }
   bookCourt(courtid){
         let prompt = this.alertCtrl.create({
         title: 'Booking Confirmation',
@@ -52,7 +61,7 @@ export class CheckAvailability {
             {
             text: 'Yes',
             handler: data => {
-                this.googleService.postCourtDetails(this.date,courtid,this.uid,this.email).then(data => {
+                this.googleService.postCourtDetails(this.date,courtid,this.uid[0].mno,this.uid[0].email).then(data => {
                     let dataListResponse = data;
                     let toast = this.toastCtrl.create({
                     message: 'Request send successfully',

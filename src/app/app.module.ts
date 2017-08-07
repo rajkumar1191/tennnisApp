@@ -18,17 +18,19 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { FirebaseService } from '../pages/register/firebase.service';
 import { FormsModule, ReactiveFormsModule }   from '@angular/forms';
-import { AngularFireModule } from 'angularfire2';
-import * as firebase from 'firebase';
-export const firebaseConfig = {
-    apiKey: "AIzaSyCcsDm_lxX0RxJkF2LiD5NmtVum46cM9C8",
-    authDomain: "tennisbooking-e419d.firebaseapp.com",
-    databaseURL: "https://tennisbooking-e419d.firebaseio.com",
-    projectId: "tennisbooking-e419d",
-    storageBucket: "",
-    messagingSenderId: "901803905283"
-};
-firebase.initializeApp(firebaseConfig);
+
+import { Facebook } from '@ionic-native/facebook';
+// import { AngularFireModule } from 'angularfire2';
+// import * as firebase from 'firebase';
+// export const firebaseConfig = {
+//      apiKey: "AIzaSyCcsDm_lxX0RxJkF2LiD5NmtVum46cM9C8",
+//     authDomain: "tennisbooking-e419d.firebaseapp.com",
+//     databaseURL: "https://tennisbooking-e419d.firebaseio.com",
+//     projectId: "tennisbooking-e419d",
+//     storageBucket: "",
+//     messagingSenderId: "901803905283"
+// };
+// firebase.initializeApp(firebaseConfig);
 
 import 'intl';
 import 'intl/locale-data/jsonp/en';
@@ -69,6 +71,7 @@ import 'intl/locale-data/jsonp/en';
     SplashScreen,
     IonicNativePlugin,
     FirebaseService,
+    Facebook,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

@@ -3,6 +3,7 @@ import { NavController, NavParams, MenuController, LoadingController, Platform, 
 import { Storage } from '@ionic/storage';
 import { CalendarEvent } from 'angular-calendar';
 import { CheckAvailability } from '../check-availability/check-availability';
+import { Login } from '../login/login';
 
 declare var navigator: any;
 declare var Connection: any;
@@ -49,7 +50,8 @@ export class Dashboard {
     uid:any;
     email:any;
   constructor(public navCtrl: NavController, public navParams: NavParams, public storage: Storage, public menuCtrl: MenuController, public loadingCtrl:LoadingController, public toastCtrl: ToastController, private platform: Platform) {
-           this.uid = this.navParams.data;
+           this.uid = this.navParams.get('udetails');
+           console.log(this.uid);
         //    this.email = this.navParams.getemail;
   }
   
@@ -91,7 +93,14 @@ export class Dashboard {
         event.setHours(0, 0, 0, 0);
         this.isToday = today.getTime() === event.getTime();
     }
-
+    navToBack()
+    {
+        this.navCtrl.pop();
+    }
+    logout()
+    {
+        this.navCtrl.setRoot(Login);
+    }
     createRandomEvents() {
         var events = [];
         for (var i = 0; i < 50; i += 1) {

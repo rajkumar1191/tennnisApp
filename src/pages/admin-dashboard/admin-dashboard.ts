@@ -3,6 +3,7 @@ import { NavController, NavParams, MenuController, LoadingController, Platform, 
 import { Storage } from '@ionic/storage';
 import { CalendarEvent } from 'angular-calendar';
 import { AdminCheckAvailability } from '../admin-check-availability/admin-check-availability';
+import { AdminLogin } from '../admin-login/admin-login';
 
 declare var navigator: any;
 declare var Connection: any;
@@ -60,7 +61,10 @@ export class AdminDashboard {
     onViewTitleChanged(title) {
         this.viewTitle = title;
     }
-
+     logout()
+    {
+        this.navCtrl.setRoot(AdminLogin);
+    }
     onEventSelected(event) {
         console.log('Event selected:' + event.startTime + '-' + event.endTime + ',' + event.title);
     }
@@ -72,7 +76,10 @@ export class AdminDashboard {
     today() {
         this.calendar.currentDate = new Date();
     }
-
+    navToBack()
+    {
+        this.navCtrl.pop();
+    }
     onTimeSelected(ev) {
         let d = new Date(ev.selectedTime),
         month = '' + (d.getMonth() + 1),

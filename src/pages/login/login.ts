@@ -27,14 +27,14 @@ export class Login {
   }
   loginFunction() {
      let loader = this.loadingCtrl.create({
-        dismissOnPageChange:true,
+        // dismissOnPageChange:true,
       });
       loader.present();
     if(this.email != undefined && this.email != 'admin' && this.password != undefined && this.password != 'admin@12'){
-        this.googleService.loginUser(this.email,this.password).then((authData)=>{
-          if(authData != undefined){
-                loader.dismiss();                
-            this.navCtrl.setRoot(Dashboard,{uid:authData});
+        this.googleService.userLogin(this.email,this.password).then((authData)=>{
+          if(authData != ''){
+            loader.dismiss();                
+            this.navCtrl.setRoot(Dashboard,{udetails:authData});
           }
           else
           {
@@ -53,12 +53,15 @@ export class Login {
            this.navCtrl.setRoot(AdminDashboard);
     }
     else{
+            loader.dismiss();      
+      
       let alert = this.alertCtrl.create({
           title: 'Login Error!!!',
           subTitle: 'Please enter email and password',
           buttons: ['OK']
         });
         alert.present();
+        
     }
    }
 }

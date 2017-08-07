@@ -9,7 +9,7 @@
    <ion-grid *ngIf="dataList.length > 0">
     <ion-row>
       <ion-col>
-        <div *ngFor="let data of dataList let i=index" [class]="data.status == 'booked' ? 'courtBooked' : (data.status == 'approved' ? 'courtBooked' : (data.status == 'new' ? 'courtAvail' : 'courtAvail'))" (click)="data.status == 'booked' ? booked() : (data.status == 'approved' ? booked() : (data.status == 'new' ? bookCourt(data.courtid) : bookCourt(data.courtid)))">
+        <div *ngFor="let data of dataList let i=index" [class]="data.status" (click)="data.status == 'booked' ? booked() : (data.status == 'Approved' ? booked() : (data.status == 'new' ? bookCourt(data.courtid) : bookCourt(data.courtid)))">
           Court {{data.courtid}}
         </div>
       </ion-col>
@@ -18,7 +18,7 @@
       <ion-col>
         <ion-item>
           <ion-row>
-            <ion-col col-1 class="booked"><div></div></ion-col>
+            <ion-col col-1 class="bookedColor"><div></div></ion-col>
             <ion-col col-11>Booked</ion-col>
           </ion-row>
         </ion-item>

@@ -32,3 +32,21 @@ ion-footer{
     font-size: 2.2em;
     color: #fff;
 }
+.booked,.Approved{
+    height: 50px;
+    background: #fb7474;
+    padding: 18px;
+    color: #fff;
+    margin: 5px;
+    width:30%;
+    display: inline-block
+}
+.new, .Rejected{
+    height: 50px;
+    background: #97de65;
+    padding: 18px;
+    color: #fff;
+    margin: 5px;
+    width:30%;
+    display: inline-block
+}

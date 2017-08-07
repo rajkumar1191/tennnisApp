@@ -8,7 +8,7 @@ import { Dashboard } from '../pages/dashboard/dashboard';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { AngularFireModule } from 'angularfire2';
+// import { AngularFireModule } from 'angularfire2';
 
 @Component({
   templateUrl: 'app.html'
@@ -39,7 +39,10 @@ export class MyApp {
       
     });
   }
-
+  navToBack()
+  {
+    this.nav.pop();
+  }
   openPage(page) {
     // close the menu when clicking a link from the menu
     // navigate to the new page if it is not the current page

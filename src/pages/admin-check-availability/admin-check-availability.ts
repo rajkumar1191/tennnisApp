@@ -3,6 +3,7 @@ import { NavController, NavParams, MenuController, LoadingController, Platform, 
 import { Storage } from '@ionic/storage';
 import { FirebaseService } from '../register/firebase.service';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
+import { AdminLogin } from '../admin-login/admin-login';
 
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
@@ -34,6 +35,14 @@ export class AdminCheckAvailability {
         console.log(this.dataList);
     });
   }
+    navToBack()
+    {
+        this.navCtrl.pop();
+    }
+     logout()
+    {
+        this.navCtrl.setRoot(AdminLogin);
+    }
   bookCourt(courtid){
         let prompt = this.alertCtrl.create({
         title: 'Booking Confirmation',

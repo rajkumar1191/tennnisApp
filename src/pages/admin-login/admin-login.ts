@@ -25,17 +25,19 @@ export class AdminLogin {
   navtouser(){
     this.navCtrl.setRoot(Login);    
   }
+  
   loginFunction() {
      let loader = this.loadingCtrl.create({
-        dismissOnPageChange:true,
+        // dismissOnPageChange:true,
       });
       loader.present();
    if(this.email == 'admin' && this.password == 'admin@12'){
-      loader.present();
+      loader.dismiss();
      
            this.navCtrl.setRoot(AdminDashboard);
     }
     else{
+      loader.dismiss();      
       let alert = this.alertCtrl.create({
           title: 'Login Error!!!',
           subTitle: 'Please enter username and password',

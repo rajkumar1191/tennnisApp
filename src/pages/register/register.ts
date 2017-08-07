@@ -4,6 +4,7 @@ import { Login } from '../login/login';
 import { FirebaseService } from './firebase.service';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { Dashboard } from '../dashboard/dashboard';
+import { Facebook, FacebookLoginResponse } from '@ionic-native/facebook';
 
 @Component({
   selector: 'page-register',
@@ -17,23 +18,19 @@ export class Register {
   password:any;
   mno:any;
   uname:any;
-  constructor(public navCtrl: NavController, public loadingCtrl: LoadingController, public navParams: NavParams, public splashScreen: SplashScreen, public googleService: FirebaseService, public alertCtrl: AlertController) {
+  constructor(public navCtrl: NavController, public loadingCtrl: LoadingController, public navParams: NavParams, public splashScreen: SplashScreen, public googleService: FirebaseService, public alertCtrl: AlertController, private fb: Facebook) {
 
   }
-
-  SignUpUser(){
-    this.googleService.signUpUser(this.email,this.password,this.mno,this.uname).then((authData)=>{
-      this.navCtrl.setRoot(Dashboard);
-    },error=>{
-      loader.dismiss();            
-      let alert = this.alertCtrl.create({
-        title: 'Registration Error!!!',
-        subTitle: error.message,
-        buttons: ['OK']
-      });
-      alert.present();
+  facebookLogin(){
+    this.googleService.facebookLogin().then((authData)=>{
+      if(authData != ''){
+        console.log(authData);
+        this.navCtrl.setRoot(Dashboard,{udetails:authData});
+      }
     });
-    // this.googleService.userReg(this.email,this.password,this.mno,this.uname).then((authData)=>{
+  }
+  SignUpUser(){
+    // this.googleService.signUpUser(this.email,this.password,this.mno,this.uname).then((authData)=>{
     //   this.navCtrl.setRoot(Dashboard);
     // },error=>{
     //   loader.dismiss();            
@@ -44,9 +41,23 @@ export class Register {
     //   });
     //   alert.present();
     // });
+    this.googleService.userReg(this.email,this.password,this.mno,this.uname).then((authData)=>{
+      if(authData != ''){
+        loader.dismiss();                
+        this.navCtrl.setRoot(Dashboard,{udetails:authData});
+      }
+    },error=>{
+      loader.dismiss();            
+      let alert = this.alertCtrl.create({
+        title: 'Registration Error!!!',
+        subTitle: error.message,
+        buttons: ['OK']
+      });
+      alert.present();
+    });
     
     let loader = this.loadingCtrl.create({
-      dismissOnPageChange:true,
+      // dismissOnPageChange:true,
     });
     loader.present();
   }
