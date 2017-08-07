@@ -1,15 +1,15 @@
 <ion-header>
     <ion-toolbar color="header">
-      <ion-title text-center>CHECK DATE</ion-title>
+      <ion-title text-center>Calendar</ion-title>
       <ion-buttons end>
-        <button ion-button icon-only (click)="logout()">
+        <button ion-button icon-only (click)="close()">
           <ion-icon name="close"></ion-icon>
         </button>
       </ion-buttons>
   </ion-toolbar>
 </ion-header>
 <ion-content no-padding class="background-gradient">
-  <h5 text-center>Calendar - {{viewTitle}}</h5>
+  <h5 text-center>{{viewTitle}}</h5>
     <calendar [eventSource]="eventSource"
         [calendarMode]="calendar.mode"
         [currentDate]="calendar.currentDate"

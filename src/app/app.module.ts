@@ -18,8 +18,8 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { FirebaseService } from '../pages/register/firebase.service';
 import { FormsModule, ReactiveFormsModule }   from '@angular/forms';
-import { Calendar } from '@ionic-native/calendar';
-import { Facebook } from '@ionic-native/facebook';
+// import { Calendar } from '@ionic-native/calendar';
+// import { Facebook } from '@ionic-native/facebook';
 // import { AngularFireModule } from 'angularfire2';
 // import * as firebase from 'firebase';
 // export const firebaseConfig = {
@@ -74,8 +74,8 @@ import 'intl/locale-data/jsonp/en';
     SplashScreen,
     IonicNativePlugin,
     FirebaseService,
-    Facebook,
-    Calendar,
+    // Facebook,
+    // Calendar,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

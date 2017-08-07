@@ -5,7 +5,7 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 
-import { Facebook, FacebookLoginResponse } from '@ionic-native/facebook';
+// import { Facebook, FacebookLoginResponse } from '@ionic-native/facebook';
 
 
 // import { AngularFire, FirebaseListObservable } from 'angularfire2';
@@ -27,43 +27,44 @@ export class FirebaseService {
     public courtDetails7: any;
     public courtDetails8: any;
 
-    constructor(private http: Http, private fb: Facebook) {
+    // constructor(private http: Http, private fb: Facebook) {
+    constructor(private http: Http) {
         // this.fireAuth = firebase.auth();
         // this.userProfile = firebase.database().ref('users');
         // this.courtDetails = firebase.database().ref('TennisBookingApp');
     }
 
     facebookLogin() {
-        this.fb.logout().then((response) =>{
-        }, (error) => {
-        })
-        return new Promise(resolve => {
-        this.fb.login(['public_profile', 'user_friends', 'email'])
-            .then((res: FacebookLoginResponse) => {
-                let params = new Array<string>();
-                this.fb.api("/me?fields=name,email,mno", params)
-                    .then(function(profile) {
-                        console.log(profile.name);
-                        console.log(profile.email);
-                        console.log(profile.mno);
-                    // this.nativeStorage.setItem('profile',
-                    // {
-                    //     name: profile.name,
-                    //     email: profile.email,
-                    //     mno: profile.mno
-                    // })
-                    // .then(function(){
-                    //     resolve(res);
-                    // }, function (error) {
-                    //     console.log(error);
-                    // })
-                    })
-            })
-        .catch(e => console.log('Error logging into Facebook', e));
+        // this.fb.logout().then((response) =>{
+        // }, (error) => {
+        // })
+        // return new Promise(resolve => {
+        // this.fb.login(['public_profile', 'user_friends', 'email'])
+        //     .then((res: FacebookLoginResponse) => {
+        //         let params = new Array<string>();
+        //         this.fb.api("/me?fields=name,email,mno", params)
+        //             .then(function(profile) {
+        //                 console.log(profile.name);
+        //                 console.log(profile.email);
+        //                 console.log(profile.mno);
+        //             // this.nativeStorage.setItem('profile',
+        //             // {
+        //             //     name: profile.name,
+        //             //     email: profile.email,
+        //             //     mno: profile.mno
+        //             // })
+        //             // .then(function(){
+        //             //     resolve(res);
+        //             // }, function (error) {
+        //             //     console.log(error);
+        //             // })
+        //             })
+        //     })
+        // .catch(e => console.log('Error logging into Facebook', e));
 
 
-        this.fb.logEvent(this.fb.EVENTS.EVENT_NAME_ADDED_TO_CART);
-        });
+        // this.fb.logEvent(this.fb.EVENTS.EVENT_NAME_ADDED_TO_CART);
+        // });
     }
     userReg(email, password, uname, mno) {
         return new Promise(resolve => {

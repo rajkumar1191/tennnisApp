@@ -8,14 +8,21 @@
         </button>
       </ion-buttons>
   </ion-toolbar>
+  <ion-toolbar color="header">
+      <ion-title text-center>{{selectedDate}}</ion-title>
+      <ion-buttons end>
+         <button ion-button icon-only (click)="openCalendar()">
+          <ion-icon name="calendar"></ion-icon>
+        </button>
+      </ion-buttons>
+  </ion-toolbar>
 </ion-header>
 <ion-content no-padding class="background-gradient">
-  <h3 text-center>{{selectedDate}}</h3>
   <span *ngIf="dataList">
    <ion-grid *ngIf="dataList.length > 0">
     <ion-row>
       <ion-col>
-        <div *ngFor="let data of dataList let i=index" [class]="data.status" (click)="data.status == 'Approved' ?  booked() : bookCourt(data.courtid)">
+        <div *ngFor="let data of dataList let i=index" [class]="data.status" (click)="data.status == 'Approved' ?  booked(i) : ( data.status == 'new' ?  availCourt(data.courtid, i) : bookCourt(data.courtid, i))">
           Court {{data.courtid}}
         </div>
       </ion-col>

@@ -4,7 +4,7 @@ import { Storage } from '@ionic/storage';
 import { FirebaseService } from '../register/firebase.service';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import { Login } from '../login/login';
-import { Calendar } from '@ionic-native/calendar';
+// import { Calendar } from '@ionic-native/calendar';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 declare var navigator: any;
@@ -22,7 +22,7 @@ export class CheckAvailability {
     uid:any;
     email:any;
     selectedDate:any;
-  constructor(public navCtrl: NavController, public navParams: NavParams, public storage: Storage, public menuCtrl: MenuController, public loadingCtrl:LoadingController, private platform: Platform, public alertCtrl: AlertController, public toastCtrl: ToastController, public googleService: FirebaseService, public http: Http, private calendar: Calendar, public modalCtrl: ModalController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public storage: Storage, public menuCtrl: MenuController, public loadingCtrl:LoadingController, private platform: Platform, public alertCtrl: AlertController, public toastCtrl: ToastController, public googleService: FirebaseService, public http: Http, public modalCtrl: ModalController) {
     this.date =  navParams.data.data;
 
     var dateParts = this.date.split("-");

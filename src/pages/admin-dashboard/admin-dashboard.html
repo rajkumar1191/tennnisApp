@@ -1,7 +1,7 @@
 <ion-header>
   <ion-icon name="arrow-round-back" class="backIcon" (click)="navToBack()"></ion-icon>
   <ion-toolbar color="header">
-      <ion-title text-center>CHECK DATE</ion-title>
+      <ion-title text-center>Calendar</ion-title>
       <ion-buttons end>
         <button ion-button icon-only (click)="logout()">
           <ion-icon name="log-out"></ion-icon>
@@ -10,7 +10,7 @@
   </ion-toolbar>
 </ion-header>
 <ion-content no-padding class="background-gradient">
-  <h5 text-center>Calendar {{viewTitle}}</h5>
+  <h5 text-center> {{viewTitle}}</h5>
     <calendar [eventSource]="eventSource"
         [calendarMode]="calendar.mode"
         [currentDate]="calendar.currentDate"

@@ -4,7 +4,7 @@ import { Login } from '../login/login';
 import { FirebaseService } from './firebase.service';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { Dashboard } from '../dashboard/dashboard';
-import { Facebook, FacebookLoginResponse } from '@ionic-native/facebook';
+// import { Facebook, FacebookLoginResponse } from '@ionic-native/facebook';
 
 @Component({
   selector: 'page-register',
@@ -18,16 +18,16 @@ export class Register {
   password:any;
   mno:any;
   uname:any;
-  constructor(public navCtrl: NavController, public loadingCtrl: LoadingController, public navParams: NavParams, public splashScreen: SplashScreen, public googleService: FirebaseService, public alertCtrl: AlertController, private fb: Facebook) {
+  constructor(public navCtrl: NavController, public loadingCtrl: LoadingController, public navParams: NavParams, public splashScreen: SplashScreen, public googleService: FirebaseService, public alertCtrl: AlertController) {
 
   }
   facebookLogin(){
-    this.googleService.facebookLogin().then((authData)=>{
-      if(authData != ''){
-        console.log(authData);
-        this.navCtrl.setRoot(Dashboard,{udetails:authData});
-      }
-    });
+    // this.googleService.facebookLogin().then((authData)=>{
+    //   if(authData != ''){
+    //     console.log(authData);
+    //     this.navCtrl.setRoot(Dashboard,{udetails:authData});
+    //   }
+    // });
   }
   SignUpUser(){
     // this.googleService.signUpUser(this.email,this.password,this.mno,this.uname).then((authData)=>{

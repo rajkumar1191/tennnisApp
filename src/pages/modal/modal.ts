@@ -95,9 +95,9 @@ export class ModalPage {
     {
         this.navCtrl.pop();
     }
-    logout()
+    close()
     {
-        this.navCtrl.setRoot(Login);
+        this.viewCtrl.dismiss();
     }
     createRandomEvents() {
         var events = [];
