@@ -20,9 +20,12 @@ export class AdminCheckAvailability {
     date:any;
     uid:any;
     email:any;
+    selectedDate:any;
   constructor(public navCtrl: NavController, public navParams: NavParams, public storage: Storage, public menuCtrl: MenuController, public loadingCtrl:LoadingController, private platform: Platform, public alertCtrl: AlertController, public toastCtrl: ToastController, public googleService: FirebaseService, public http: Http) {
     this.date =  navParams.data.data;
     this.uid =  navParams.get('uid');
+    var dateParts = this.date.split("-");
+    this.selectedDate = dateParts[2]+'/'+dateParts[1]+'/'+dateParts[0].slice(-2);
   }
   ionViewDidLoad() {
     let loader = this.loadingCtrl.create({

@@ -1,14 +1,15 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, MenuController, LoadingController, Platform, AlertController, ToastController  } from 'ionic-angular';
+import { NavController, NavParams, MenuController, LoadingController, Platform, AlertController, ToastController, ModalController   } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 import { FirebaseService } from '../register/firebase.service';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import { Login } from '../login/login';
-
+import { Calendar } from '@ionic-native/calendar';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 declare var navigator: any;
 declare var Connection: any;
+import { ModalPage } from '../modal/modal';
 
 @Component({
   selector: 'page-check-availability',
@@ -20,10 +21,26 @@ export class CheckAvailability {
     date:any;
     uid:any;
     email:any;
-  constructor(public navCtrl: NavController, public navParams: NavParams, public storage: Storage, public menuCtrl: MenuController, public loadingCtrl:LoadingController, private platform: Platform, public alertCtrl: AlertController, public toastCtrl: ToastController, public googleService: FirebaseService, public http: Http) {
+    selectedDate:any;
+  constructor(public navCtrl: NavController, public navParams: NavParams, public storage: Storage, public menuCtrl: MenuController, public loadingCtrl:LoadingController, private platform: Platform, public alertCtrl: AlertController, public toastCtrl: ToastController, public googleService: FirebaseService, public http: Http, private calendar: Calendar, public modalCtrl: ModalController) {
     this.date =  navParams.data.data;
+
+    var dateParts = this.date.split("-");
+    this.selectedDate = dateParts[2]+'/'+dateParts[1]+'/'+dateParts[0].slice(-2);
+
     this.uid =  navParams.get('uid');
   }
+openCalendar(){
+        let modal = this.modalCtrl.create(ModalPage);
+        modal.present();
+        modal.onDidDismiss(data=>{
+            this.date = data;
+            this.ionViewDidLoad();
+             //This is a listener which wil get the data passed from modal when the modal's view controller is dismissed
+        console.log("Data =>", data) //This will log the form entered by user in add modal.
+    })
+}
+
   ionViewDidLoad() {
     let loader = this.loadingCtrl.create({
     });
@@ -39,7 +56,7 @@ export class CheckAvailability {
     {
         this.navCtrl.pop();
     }
-     logout()
+        logout()
     {
         this.navCtrl.setRoot(Login);
     }

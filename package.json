@@ -20,6 +20,7 @@
         "@angular/http": "4.0.2",
         "@angular/platform-browser": "4.0.2",
         "@angular/platform-browser-dynamic": "4.0.2",
+        "@ionic-native/calendar": "^4.1.0",
         "@ionic-native/code-push": "^4.0.1",
         "@ionic-native/core": "^4.0.1",
         "@ionic-native/facebook": "^4.1.0",
@@ -32,6 +33,7 @@
         "angularfire2": "^2.0.0-beta.7-pre",
         "code-push": "^2.0.1-beta",
         "cordova-android": "^6.2.3",
+        "cordova-plugin-calendar": "^4.6.0",
         "cordova-plugin-compat": "^1.0.0",
         "cordova-plugin-console": "^1.0.5",
         "cordova-plugin-device": "file:node_modules\\cordova-plugin-device",
@@ -91,7 +93,8 @@
                 "APP_ID": "2056568957906976",
                 "APP_NAME": "tennisBooking"
             },
-            "cordova-plugin-nativestorage": {}
+            "cordova-plugin-nativestorage": {},
+            "cordova-plugin-calendar": {}
         },
         "platforms": [
             "android"

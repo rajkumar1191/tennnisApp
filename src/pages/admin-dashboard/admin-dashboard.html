@@ -10,7 +10,7 @@
   </ion-toolbar>
 </ion-header>
 <ion-content no-padding class="background-gradient">
-  <h5 text-center>Calendar</h5>
+  <h5 text-center>Calendar {{viewTitle}}</h5>
     <calendar [eventSource]="eventSource"
         [calendarMode]="calendar.mode"
         [currentDate]="calendar.currentDate"

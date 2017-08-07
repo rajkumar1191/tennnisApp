@@ -18,7 +18,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { FirebaseService } from '../pages/register/firebase.service';
 import { FormsModule, ReactiveFormsModule }   from '@angular/forms';
-
+import { Calendar } from '@ionic-native/calendar';
 import { Facebook } from '@ionic-native/facebook';
 // import { AngularFireModule } from 'angularfire2';
 // import * as firebase from 'firebase';
@@ -31,6 +31,7 @@ import { Facebook } from '@ionic-native/facebook';
 //     messagingSenderId: "901803905283"
 // };
 // firebase.initializeApp(firebaseConfig);
+import { ModalPage } from '../pages/modal/modal';
 
 import 'intl';
 import 'intl/locale-data/jsonp/en';
@@ -43,7 +44,8 @@ import 'intl/locale-data/jsonp/en';
     Register,
     AdminLogin,
     CheckAvailability,
-    AdminCheckAvailability
+    AdminCheckAvailability,
+    ModalPage
   ],
   imports: [
     BrowserModule,
@@ -64,7 +66,8 @@ import 'intl/locale-data/jsonp/en';
     Register,
     AdminLogin,
     CheckAvailability,
-    AdminCheckAvailability
+    AdminCheckAvailability,
+    ModalPage
   ],
   providers: [
     StatusBar,
@@ -72,6 +75,7 @@ import 'intl/locale-data/jsonp/en';
     IonicNativePlugin,
     FirebaseService,
     Facebook,
+    Calendar,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

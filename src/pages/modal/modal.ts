@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, MenuController, LoadingController, Platform, ToastController} from 'ionic-angular';
+import { NavController, NavParams, MenuController, LoadingController, Platform, ToastController, ViewController} from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 import { CalendarEvent } from 'angular-calendar';
 import { CheckAvailability } from '../check-availability/check-availability';
@@ -9,10 +9,10 @@ declare var navigator: any;
 declare var Connection: any;
 
 @Component({
-  selector: 'page-dashboard',
-  templateUrl: 'dashboard.html',
+  selector: 'page-modal',
+  templateUrl: 'modal.html',
 })
-export class Dashboard {
+export class ModalPage {
   eventSource;
     viewTitle;
 
@@ -49,10 +49,7 @@ export class Dashboard {
     };
     uid:any;
     email:any;
-  constructor(public navCtrl: NavController, public navParams: NavParams, public storage: Storage, public menuCtrl: MenuController, public loadingCtrl:LoadingController, public toastCtrl: ToastController, private platform: Platform) {
-           this.uid = this.navParams.get('udetails');
-           console.log(this.uid);
-        //    this.email = this.navParams.getemail;
+  constructor(public navCtrl: NavController, public navParams: NavParams, public storage: Storage, public menuCtrl: MenuController, public loadingCtrl:LoadingController, public toastCtrl: ToastController, private platform: Platform, public viewCtrl: ViewController) {
   }
   
   loadEvents() {
@@ -85,7 +82,7 @@ export class Dashboard {
         if (month.length < 2) month = '0' + month;
         if (day.length < 2) day = '0' + day;
         let data = [year, month, day].join('-');
-        this.navCtrl.push(CheckAvailability,{data:data,uid:this.uid});
+        this.viewCtrl.dismiss(data);
     }
 
     onCurrentDateChanged(event:Date) {
